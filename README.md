@@ -10,13 +10,11 @@ help parallelize expensive operations.
 ```dart
 import 'package:pmap/pmap.dart';
 
-int square(int x) => x * x;
+int mapper(int x) => x * x;
 
 void main() async {
-  List<int> list = [1, 2, 3, 4, 5];
-  Stream<int> results = pmap(list, square);
-  await for (int value in results) {
-    print(value);
-  }
+  final foo = Iterable<int>.generate(100);
+  final results = pmap(foo, mapper, parallel: 2);
+  await results.forEach(print);
 }
 ```
