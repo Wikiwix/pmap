@@ -3,7 +3,7 @@ import 'package:pmap/pmap.dart';
 int mapper(int x) => x * x;
 
 Iterable<int> countTo(int x) sync* {
-  for( int i = 0; i < x; ++i) {
+  for (int i = 0; i < x; ++i) {
     yield i;
   }
 }
